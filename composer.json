@@ -1,0 +1,15 @@
+{
+    "description": "Site PHP OO",
+    "authors":[
+        {
+            "name": "Leandro",
+            "email": "lds.leosantos@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core"
+        }
+    },
+    "require": {}
+}
