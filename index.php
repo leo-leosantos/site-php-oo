@@ -12,7 +12,7 @@
 
             require './vendor/autoload.php';
            $url = new ConfigController();
-           $url->loadPg();
+           $url->loadPage();
         ?>
 </body>
 </html>

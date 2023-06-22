@@ -1,5 +1,6 @@
 <?php
 
+namespace Sts\Controllers;
 
 class Erro 
 
