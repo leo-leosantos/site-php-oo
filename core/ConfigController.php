@@ -6,6 +6,12 @@ namespace Core;
  * Carregar a controller
  *@author Leandro dos santos <email@email.com> 
  */
+ if(!defined('C7E3L8K9E5')){
+    header("Location: /site");
+ 
+    die("Not found");
+ }
+
 
 class ConfigController extends Config
 {

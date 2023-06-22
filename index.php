@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site</title>
-</head>
-<body>
-        <?php
+<?php
+//constante 
 
-            use Core\ConfigController;
+define('C7E3L8K9E5', true);
 
-            require './vendor/autoload.php';
-           $url = new ConfigController();
-           $url->loadPage();
-        ?>
-</body>
-</html>
+use Core\ConfigController;
+
+require './vendor/autoload.php';
+
+
+
+
+$url = new ConfigController();
+$url->loadPage();
