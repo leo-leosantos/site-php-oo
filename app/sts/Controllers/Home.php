@@ -8,7 +8,9 @@ if(!defined('C7E3L8K9E5')){
     die("Not found");
  }
 
- use Core\ConfigView;
+
+use Core\ConfigView;
+use Sts\Models\StsHome;
 
 class Home
 {
@@ -17,7 +19,9 @@ class Home
     public function index()
     {
 
-        $this->data = [];
+        $home = new StsHome();
+
+        $this->data=  $home->index();
         $loadView = new ConfigView("sts/Views/home/home", $this->data);
         $loadView->loadView();
     }

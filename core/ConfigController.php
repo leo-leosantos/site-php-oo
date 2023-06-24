@@ -54,7 +54,6 @@ class ConfigController extends Config
             //echo "Acessar a pagina incial<br>";
             $this->urlController = $this->slugController(CONTROLLER);
         }
-        echo "Controller: {$this->urlController}<br>";
     }
 
 

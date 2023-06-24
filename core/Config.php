@@ -18,13 +18,13 @@ abstract class  Config
         define('CONTROLLER','Home');
         define('CONTROLLERRO','Erro');
 
-        //credencias do banco  de Dados
-
-
-
-
-
-
+        //credencias do banco  de Dados com docker
+         define('HOST', 'mysql-srv-7' );//nome do host no docker
+         define('USER','root');
+         define('PASS','root');
+         define('DBNAME','celke_site');
+         define('PORT', 3306);
+       
         //Email de contato suporte
         define('EMAILADM','leo_leosantos@yahoo.com.br');
 
