@@ -2,11 +2,14 @@
 
 namespace Sts\Models;
 
-if(!defined('C7E3L8K9E5')){
+if (!defined('C7E3L8K9E5')) {
     header("Location: /site");
- 
+
     die("Not found");
- }
+}
+
+use \Sts\Models\helper\StsRead;
+
 class StsHome
 {
     private array $data;
@@ -15,23 +18,19 @@ class StsHome
     public function index(): array
     {
 
-        $this->data = [];
 
-        $connection =   new \Sts\Models\helper\StsConn();
+        $viewHome =  new StsRead();
+        //select todas as  colunas
+        //$viewHome->exeRead("sts_homes_tops", "WHERE id=:id LIMIT :limit", "id=1&limit=1");
+        //select as colunas que eu quero
+        $viewHome->fullRead("SELECT id, title_top, description_top , link_btn_top, txt_btn_top, image 
+                            FROM  sts_homes_tops 
+                            WHERE id=:id LIMIT :limit", "id=1&limit=1");
+        $this->data =   $viewHome->getResult();
 
-         $this->connection = $connection->connectDb();
+        // var_dump($this->data);
 
-         $query_home_top = "SELECT * 
-                            FROM `sts_homes_tops` 
-                            LIMIT 1";
-
-
-        $result_home_top = $this->connection->prepare($query_home_top) ;
-        $result_home_top->execute();
-
-        $this->data = $result_home_top->fetch();      
+        //$this->data =[];
         return $this->data;
-
-        
     }
 }
