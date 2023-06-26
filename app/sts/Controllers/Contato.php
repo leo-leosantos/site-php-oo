@@ -9,15 +9,30 @@ if(!defined('C7E3L8K9E5')){
  }
  
  use Core\ConfigView;
+use Sts\Models\StsContato;
 
 class Contato 
 {
-    private     ?array  $data;
-    public function index()
+    private  ?array  $data = null;
+    private  ?array $dataForm;
+
+    public function index(): void
     {
-        //se for uma string passar dentro de um array
-        // $this->data = ["lorem ipsum dolor sit"];
-         $this->data = null;
+
+        $this->dataForm =   filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        if(!empty($this->dataForm['AddContMsg']))
+        {
+            $createContatoMgs = new StsContato();
+
+           if($createContatoMgs->create($this->dataForm)){
+                echo "Cadastrado com successo";
+           }else{
+                    echo "Erro no cadastr";
+                    $this->data['form'] = $this->dataForm;
+           }
+          
+        }
 
         $loadView = new ConfigView("sts/Views/contato/contato", $this->data);
         $loadView->loadView();
