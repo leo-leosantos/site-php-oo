@@ -29,6 +29,7 @@ class ConfigController extends Config
     private string $urlParameter;
     private string $urlSlugController;
     private array $format;
+    private string $classLoad;
 
     /**
      * Recebe a url do .htaccess
@@ -91,10 +92,27 @@ class ConfigController extends Config
 
     public function loadPage(): void
     {
-        $classLoad = "\\Sts\\Controllers\\" . $this->urlController;
-        
+        $this->classLoad  = "\\Sts\\Controllers\\" . $this->urlController;
+      
+        if(class_exists($this->classLoad)){
+            $this->loadClass();
+        }else{
+            $this->urlController = $this->slugController(CONTROLLERRO);
+            $this->loadPage();
+        }
 
-        $classPage = new $classLoad();
-        $classPage->index();
+     
+    }
+
+    private function loadClass(): void
+    {
+
+        $classPage = new $this->classLoad();
+
+        if(method_exists($classPage, "index")){
+            $classPage->index();
+        }else{
+            die("Error page not found");
+        }
     }
 }
