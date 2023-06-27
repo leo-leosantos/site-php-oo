@@ -39,12 +39,13 @@ class ConfigController extends Config
         $this->config();
 
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
-            $this->url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
+              $this->url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
 
+            
             $this->clearUrl();
-            $this->urlArray = explode("/", $this->url);
+           $this->urlArray = explode("/", $this->url);
 
-
+           
             if (isset($this->urlArray[0])) {
                 $this->urlController = $this->slugController($this->urlArray[0]);
             } else {
@@ -91,6 +92,8 @@ class ConfigController extends Config
     public function loadPage(): void
     {
         $classLoad = "\\Sts\\Controllers\\" . $this->urlController;
+        
+
         $classPage = new $classLoad();
         $classPage->index();
     }

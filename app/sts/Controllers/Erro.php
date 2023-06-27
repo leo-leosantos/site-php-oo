@@ -10,7 +10,7 @@ if(!defined('C7E3L8K9E5')){
 
  use Core\ConfigView;
 
-class Erro 
+class Erro  //CONTROLLER
 
 {
     private     ?array  $data;

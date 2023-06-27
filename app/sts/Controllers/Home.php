@@ -12,7 +12,7 @@ if (!defined('C7E3L8K9E5')) {
 use Core\ConfigView;
 use Sts\Models\StsHome;
 
-class Home
+class Home //CONTROLLER
 {
 
     private     ?array  $data;

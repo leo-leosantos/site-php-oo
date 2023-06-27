@@ -1,6 +1,7 @@
 <?php
 
 namespace core;
+date_default_timezone_set('America/Sao_Paulo');
 
 
 if(!defined('C7E3L8K9E5')){
@@ -29,4 +30,6 @@ abstract class  Config
         define('EMAILADM','leo_leosantos@yahoo.com.br');
 
     }
+
+
 }
