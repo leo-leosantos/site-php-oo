@@ -24,8 +24,8 @@ if (isset($_SESSION['msg'])) {
 ?>
 
 
-<div class=" container">
-    <h1>Entre em contato</h1>
+<div class="container">
+    <h1 class="mb-3 mt-3 text-info">Entre em Contato</h1>
     <form action="" method="post" class="form-group">
         <fieldset>
             <div class="mb-3">

@@ -12,10 +12,9 @@ use \Sts\Models\helper\StsRead;
 
 class StsHome
 {
-    private array $data;
-    private object $connection;
+    private ?array $data;
 
-    public function index(): array
+    public function index(): ?array
     {
 
 
