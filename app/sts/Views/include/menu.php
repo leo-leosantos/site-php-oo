@@ -5,11 +5,22 @@
     
         die("Not found");
     }
-
-
-    echo "<a href='".URL."' class='btn btn-info mt-3 mr-3'>Home</a><br>";
-    echo "<a href='".URL."sobre-empresa' class='btn btn-info mr-3'>Sobre Empresa</a><br>";
-    echo "<a href='".URL."contato' class='btn btn-info'>Contato</a><br>";
-
 ?>
+
+<nav class="navbar">
+        <div class="max-width">
+            <div class="logo">
+                <a href="<?= URL;?>">Leandro</a>
+            </div>
+            <ul class="menu" id="menu-site">
+                <li><a href="<?= URL;?>">Home</a></li>
+                <li><a href="<?= URL;?>sobre-empresa">Sobre Empresa</a></li>
+                <li><a href="<?= URL;?>contato">Contato</a></li>
+            </ul>
+            <div class="menu-btn" id="menu-btn">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </div>
+        </div>
+    </nav>
+
 

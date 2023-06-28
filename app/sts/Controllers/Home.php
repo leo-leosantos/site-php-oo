@@ -10,6 +10,7 @@ if (!defined('C7E3L8K9E5')) {
 
 
 use Core\ConfigView;
+use Sts\Models\StsFooter;
 use Sts\Models\StsHome;
 
 class Home //CONTROLLER
@@ -19,8 +20,16 @@ class Home //CONTROLLER
     public function index()
     {
         $home = new StsHome();
-        $this->data =  $home->index();
-        $loadView = new ConfigView("sts/Views/home/home", $this->data);
-        $loadView->loadView();
+        $this->data['home'] =  $home->index();
+
+
+        $footer = new StsFooter();
+        $this->data['footer'] =  $footer->index();
+
+
+        //var_dump($this->data['footer']);
+
+       $loadView = new ConfigView("sts/Views/home/home", $this->data);
+       $loadView->loadView();
     }
 }
