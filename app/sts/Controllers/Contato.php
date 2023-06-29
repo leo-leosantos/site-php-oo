@@ -39,8 +39,13 @@ class Contato  //CONTROLLER
         }
 
 
-        $contentContact = new StsContentContact();
-        $this->data['content'] =  $contentContact->index();
+        if(! empty( $contentContact = new StsContentContact())){
+            $this->data['content'] =  $contentContact->index();
+        }else{
+            $this->data['content'] = null;
+        }
+       
+        
 
         $footer = new StsFooter();
         $this->data['footer'] =  $footer->index();

@@ -24,8 +24,12 @@ class StsContentContact
                             WHERE id=:id 
                             LIMIT :limit", "id=1&limit=1");
 
-        $this->data =   $viewContentContact->getResult();
 
-        return $this->data;
+        if(!empty($this->data = $viewContentContact->getResult())){
+            return $this->data;
+        }else{
+           return  $this->data =null;
+        }
+
     }
 }
