@@ -9,6 +9,7 @@ if (!defined('C7E3L8K9E5')) {
 }
 
 use Core\ConfigView;
+use Sts\Models\StsFooter;
 use Sts\Models\StsContato;
 
 class Contato  //CONTROLLER
@@ -34,6 +35,9 @@ class Contato  //CONTROLLER
             }
         }
 
+        $footer = new StsFooter();
+        $this->data['footer'] =  $footer->index();
+        
         $loadView = new ConfigView("sts/Views/contato/contato", $this->data);
         $loadView->loadView();
     }
