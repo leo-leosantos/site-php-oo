@@ -7,52 +7,79 @@ if (!defined('C7E3L8K9E5')) {
 }
 
 
-//var_dump($this->data);
 
 if (isset($this->data['form'])) {
     $valueForm = $this->data['form'];
     extract($valueForm);
 }
+
+
+if (!empty($this->data['content'][0])) {
+    extract($this->data['content'][0]);
+} else {
+    echo "<p style='color: #f00;'> Error: Nenhuma informação de contato encontrada </p>";
+}
+?>
 ?>
 <section class="contact">
     <div class="max-width">
-        <h2 class="title">Contato</h2>
+        <h2 class="title">
+            <?php if (isset($title_contact))
+                echo  $title_contact;
+            ?>
+        </h2>
         <div class="contact-content">
             <div class="column left">
-                <p>Mauris volutpat arcu eu mi volutpat fermentum. Aenean vel dignissim orci. Vestibulum mollis elit vel tellus viverra dictum.</p>
+                <p>
+                    <?php if (isset($desc_contact))
+                        echo $desc_contact;
+                    ?>
+                </p>
                 <div class="icons">
                     <div class="row">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="<?= $icon_company ?>"></i>
                         <div class="info">
                             <div class="head">
-                                Empresa
+                                <?php if (isset($title_company))
+                                    echo $title_company;
+                                ?>
                             </div>
                             <div class="sub-title">
-                                Leandro
+                                <?php if (isset($desc_company))
+                                    echo $desc_company;
+                                ?>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i class="<?= $icon_address ?>"></i>
                         <div class="info">
                             <div class="head">
-                                Endereço
+                                <?php if (isset($title_address))
+                                    echo $title_address;
+                                ?>
                             </div>
                             <div class="sub-title">
-                                Avenida Wilson tavares
+                                <?php if (isset($desc_address))
+                                    echo $desc_address;
+                                ?>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <i class="fa-solid fa-envelope"></i>
+                        <i class="<?= $icon_email ?>"></i>
                         <div class="info">
                             <div class="head">
-                                E-mail
+                                <?php if (isset($title_email))
+                                    echo $title_email;
+                                ?>
                             </div>
                             <div class="sub-title">
-                                leandro@leandro.com.br
+                                <?php if (isset($desc_email))
+                                    echo $desc_email;
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -61,14 +88,16 @@ if (isset($this->data['form'])) {
 
             <div class="column right">
                 <div class="text">
-                    Mensagem de Contato
+                    <?php if (isset($title_form))
+                        echo $title_form;
+                    ?>
                 </div>
                 <form action="" method="post">
                     <?php
-                        if (isset($_SESSION['msg'])) {
-                            echo $_SESSION['msg'];
-                            unset($_SESSION['msg']);
-                        }
+                    if (isset($_SESSION['msg'])) {
+                        echo $_SESSION['msg'];
+                        unset($_SESSION['msg']);
+                    }
                     ?>
                     <div class="fields">
                         <div class="field name">
