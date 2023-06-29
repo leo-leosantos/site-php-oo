@@ -21,7 +21,7 @@ class StsFooter
                             FROM  sts_footers 
                             WHERE id=:id 
                             LIMIT :limit", "id=1&limit=1");
-        $this->data =   $viewFooter->getResult();
+         $this->data =   $viewFooter->getResult();
 
         return $this->data;
     }

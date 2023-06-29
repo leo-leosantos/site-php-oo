@@ -10,6 +10,7 @@ if(!defined('C7E3L8K9E5')){
  
 use Core\ConfigView;
 use Sts\Models\StsSobreEmpresa;
+use Sts\Models\StsFooter;
 
 class SobreEmpresa  //CONTROLLER
 
@@ -20,6 +21,9 @@ class SobreEmpresa  //CONTROLLER
 
         $aboutCompany =  new StsSobreEmpresa();
         $this->data['about-company'] =  $aboutCompany->index();
+
+        $footer = new StsFooter();
+        $this->data['footer'] =  $footer->index();
 
         $loadView = new ConfigView("sts/Views/sobreEmpresa/sobreEmpresa", $this->data);
         $loadView->loadView();
